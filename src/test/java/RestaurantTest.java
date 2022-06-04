@@ -2,12 +2,17 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
     Restaurant restaurant;
     //REFACTOR ALL THE REPEATED LINES OF CODE
+
+    // Part 3
+    List<Item> menuItemList = new ArrayList<Item>();
 
     // Part 2 : Solution
     public void testSetupRestaurant() {
@@ -65,4 +70,14 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // Part 3: Failing test case
+    @Test
+    public void order_value_should_get_total_when_items_selected_from_menu() {
+        testSetupRestaurant();
+        menuItemList = restaurant.getMenu();
+        assertEquals(643, restaurant.getOrderValue(menuItemList));
+    }
+    //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
