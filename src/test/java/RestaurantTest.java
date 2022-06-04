@@ -72,12 +72,22 @@ class RestaurantTest {
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    // Part 3: Failing test case
+    // Part 3: Failing Test Case
     @Test
     public void order_value_should_get_total_when_items_selected_from_menu() {
         testSetupRestaurant();
         menuItemList = restaurant.getMenu();
         assertEquals(643, restaurant.getOrderValue(menuItemList));
+    }
+    // Part 3: Passing Test Case
+    @Test
+    public void order_value_should_get_total_decreased_when_items_removed_from_selection() {
+        testSetupRestaurant();
+        menuItemList = restaurant.getMenu();
+        int allItemPrice = restaurant.getOrderValue(menuItemList);
+        int removedItemPrice = menuItemList.get(0).getPrice();
+        menuItemList.remove(0);
+        assertEquals(allItemPrice - removedItemPrice, restaurant.getOrderValue(menuItemList));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<<<ORDER VALUE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }

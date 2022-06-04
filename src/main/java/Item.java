@@ -15,4 +15,9 @@ public class Item {
     public String toString() {
         return  name + ":" + price + "\n";
     }
+
+    // Part 3 : Solution
+    public int getPrice() {
+        return price;
+    }
 }

@@ -89,4 +89,19 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+    /**
+     * @method getOrderValue
+     * @param itemList
+     * @return int
+     * @description get orderValue from itemsList
+     * Part 3: Solution
+     */
+    public int getOrderValue(List<Item> itemList) {
+        int totalValue = 0;
+        for(Item thisItem : itemList) {
+            totalValue += thisItem.getPrice();
+        }
+        return totalValue;
+    }
 }
